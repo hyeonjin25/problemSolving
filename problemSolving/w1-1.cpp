@@ -41,28 +41,25 @@ int main() {
 		}
 		
 		//arr(p,q)
+		int v = 0;
 		for (int q = 0; q < r; q++) {
-			
-			if (q % 2 == 0)//짝수열 일때
 			{
 				for (int p = 0; p < k; p++) {
-					int v = k * q + p;
-					if (v >= s.size()) {  //문자열 배열의 범위를 벗어날 경우
-						arr[p][q] = '.';
-						continue; 
-					} 
-					arr[p][q] = s[v];
-				}
-			}
-			else //홀수열 일때
-			{
-				for (int p = 0; p < k; p++) {
-					int v = k * (q + 1) - (p + 1);
-					if (v >= s.size()) {  //문자열 배열의 범위를 벗어날 경우
-						arr[p][q] = '.';
-						continue;
+					if(q % 2 == 0) {//짝수열 일때
+						if (v >= s.size()) {  //문자열 배열의 범위를 벗어날 경우
+							arr[p][q] = '.';
+							continue;
+						}
+						arr[p][q] = s[v];
 					}
-					arr[p][q] = s[v];
+					else {//홀수열 일때
+						if (v >= s.size()) {  //문자열 배열의 범위를 벗어날 경우
+							arr[k - p - 1][q] = '.';
+							continue;
+						}
+						arr[k-p-1][q] = s[v];
+					}
+					v++;
 				}
 			}
 		}
@@ -72,7 +69,7 @@ int main() {
 				if (arr[p][q] == '.') continue;
 				cout << arr[p][q];
 			}
+		cout << "\n";
 		}
-		//cout << "\n";
 	}
 }
