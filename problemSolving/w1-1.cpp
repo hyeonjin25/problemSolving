@@ -3,8 +3,31 @@
 using namespace std;
 
 /*
+	2차원 배열 없이 푼 코드
+
+	p r o b l e m s o l v  i  n  g
+	0 1 2 3 4 5 6 7 8 9 10 11 12 13
+
+	       
+	  0    p s  o
+	  1    r m  l
+	  2    o e  v g
+	 k-1   b l  i n
+
+	 o = i
+	 e = (k + k - i - 1)        => prob가 k만큼이고, e는 1열에서 k-2행이기 때문
+	 v = i + 2k                 => o의 위치에서 prob lems 만큼 더하므로
+	 g = (k + k - i - 1) + 2k   => e의 위치에서 prob lems 만큼 더하므로
+
+	2개의 열을 한 묶음으로 봄, 앞의 열은 순서대로, 뒤의 열은 거꾸로 된 열.
+	한 행 i에서 첫 번째 열은 i, 두 번쨰 열은 k + (k-i-1) 로 설정
+	한 묶음의 열을 넘어갈 때마다 2k를 더해줌 (prob lems => 2*4 = 8 뒤부터 앞의 알고리즘을다시 반복하므로) 
+
 	짝수일때 홀수일때 모두 예외처리 해줘야함 (배열의 크기를 벗어날 경우)
 	배열 설정할 때 범위 잘 보기!!!! (k범위.. 특히)
+
+	cout << "\n"; 빼먹으면 안됨
+
 */
 
 
@@ -32,44 +55,24 @@ int main() {
 		int r; //배열의 가로길이
 		r = (n % k == 0) ? (n / k) : (n / k + 1); 
 
-
-		//배열 초기화
+		int idx;
 		for (int p = 0; p < k; p++) {
 			for (int q = 0; q < r; q++) {
-				arr[p][q] = 0;
-			}
-		}
-		
-		//arr(p,q)
-		int v = 0;
-		for (int q = 0; q < r; q++) {
-			{
-				for (int p = 0; p < k; p++) {
-					if(q % 2 == 0) {//짝수열 일때
-						if (v >= s.size()) {  //문자열 배열의 범위를 벗어날 경우
-							arr[p][q] = '.';
-							continue;
-						}
-						arr[p][q] = s[v];
+				if(q % 2 == 0) { //짝수열 일때
+					idx = p + ((q / 2) * 2 * k);
+					if (idx >= s.size()) {  //문자열 배열의 범위를 벗어날 경우
+						continue;
 					}
-					else {//홀수열 일때
-						if (v >= s.size()) {  //문자열 배열의 범위를 벗어날 경우
-							arr[k - p - 1][q] = '.';
-							continue;
-						}
-						arr[k-p-1][q] = s[v];
-					}
-					v++;
 				}
+				else { //홀수열 일때
+					idx = (2 * k - p - 1) + ((q / 2) * 2 * k);
+					if (idx >= s.size()) {  //문자열 배열의 범위를 벗어날 경우
+						continue;
+					}
+				}
+				cout << s[idx];
 			}
 		}
-
-		for (int p = 0; p < k; p++) {
-			for (int q = 0; q < r; q++) {
-				if (arr[p][q] == '.') continue;
-				cout << arr[p][q];
-			}
 		cout << "\n";
-		}
 	}
 }
