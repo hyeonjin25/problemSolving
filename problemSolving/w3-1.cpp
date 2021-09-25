@@ -18,8 +18,8 @@ int main() {
 		int n; // 디렉토리 개수
 		cin >> n;
 
-		// 인접 리스트 동적할당
-		vector<int>* graph = new vector<int>[n + 1]; // 0은 사용 안함
+		// 인접 리스트 
+		vector<int>graph[50001];
 
 		// 단방향 그래프 만들기
 		int p, c;
@@ -37,7 +37,7 @@ int main() {
 			name_vec.push_back(name.length());
 		}
 
-		int visit[50000] = {false,};
+		int visit[50001] = {false,};
 		queue<int>q;
 
 		q.push(1);
@@ -58,7 +58,7 @@ int main() {
 			}
 		}
 
-		for (int i = 1; i < n+1; i++) {
+		for (int i = 1; i < n + 1; i++) {
 			cout << name_vec[i] << "\n";
 		}
 	}
