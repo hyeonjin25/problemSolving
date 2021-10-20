@@ -75,14 +75,6 @@ int main() {
 			check[attackX][attackY] = -1;
 		}
 
-		//for (int i = 1; i < n+1; i++) { // 팔방 돌며 표시
-		//   for (int j = 1; j < n + 1; j++) { // 한 방향으로 끝까지 표시
-		//      cout << check[i][j] << " ";
-		//   }
-		//   cout << "\n";
-		//}
-
-
 		// BFS
 		int moveX, moveY;
 		queue<point>que;

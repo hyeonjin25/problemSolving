@@ -20,7 +20,7 @@ int main() {
 
 		int first, s;
 		bool same = false; // 비교한 신호가 서로 일치하는 경우에 참
-		bool suc = false; // 처음으로 돌아가 확인 중 주기와 전부 일치하면 참
+		bool suc = false; // 주기와 전부 일치하면 참
 		bool end = false; // 마지막까지 전부 확인하면 참
 		int cycle; // 주기의 길이 저장
 

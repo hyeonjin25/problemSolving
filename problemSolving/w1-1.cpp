@@ -52,7 +52,7 @@ int main() {
 		cin >> k;
 		n = s.length();
 
-		int r; //배열의 가로길이
+		int r; //배열의 가로길이 (행의 길이)
 		r = (n % k == 0) ? (n / k) : (n / k + 1); 
 
 		int idx;
