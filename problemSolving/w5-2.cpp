@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int house[1000001];
+int graph[1000001];
 int n; // 집의 수
 int m; // 주민의 수
 
@@ -14,8 +14,8 @@ int check(int len) {
 
 	// 기준 거리 이상의 집 중 가장 가까운 집 찾기
 	for (int i = 0; i < n; i++) {
-		if (cur <= house[i]) {
-			cur = house[i] + len; // 입주 성공한 집 위치로부터 기준거리만큼 떨어진 곳
+		if (cur <= graph[i]) {
+			cur = graph[i] + len; // 입주 성공한 집 위치로부터 기준거리만큼 떨어진 곳
 			count++;
 		}
 		if (count == m) { // 모든 주민이 입주했을 경우
@@ -42,11 +42,13 @@ int binary(int l, int r) {
 	}
 
 	// 재귀함수로 최적의 기준거리 찾기
+	// 해당 거리로 입주 성공한 경우 더 먼 거리로 시도
 	if (check(mid)) {
-		return binary(mid, r);
+		binary(mid, r);
 	}
+	//실패한 경우 더 짧은 거리로 시도
 	else {
-		return binary(l, mid - 1); 
+		binary(l, mid - 1); 
 	}
 }
 
@@ -60,10 +62,10 @@ int main() {
 		
 	// 집 위치들 입력 받기
 	for (int i = 0; i < n; i++) {
-		cin >> house[i];
+		cin >> graph[i];
 	}
 		
-	int asn = binary(1, house[n - 1]);
+	int asn = binary(1, graph[n - 1]);
 		
 	cout << asn;
 }

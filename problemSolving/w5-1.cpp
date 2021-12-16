@@ -37,7 +37,7 @@ int main() {
 				same = true;
 				int j = 0;
 				while (same && !end) {
-					for (j; j < j + i; j++) { // 첫 신호부터 해당 신호의 바로 앞까지를 주기로 설정
+					while (1) {
 						if (vec[j + i] != vec[j]) { // 해당 주기가 이 전 주기와 같은지 확인
 							same = false; 
 							break;
@@ -48,6 +48,7 @@ int main() {
 							end = true;
 							break;
 						}
+						j++;
 					}
 					j += i;
 				}
