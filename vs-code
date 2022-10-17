@@ -1,0 +1,16 @@
+ctrl + shift + p -> display : 언어변경
+https://webnautes.tistory.com/1158 : c/c++ 환경설정
+
+
+파일 - 기본설정 - 바로가기 키 - 바로가기 키 열기
+// 키 바인딩을 이 파일에 넣어서 기본값을 덮어씁니다.
+[
+    //컴파일
+    { "key": "ctrl+alt+c", "command": "workbench.action.tasks.build" },
+    
+    //실행
+    { "key": "ctrl+alt+r", "command": "workbench.action.tasks.test" }
+]
+
+파이썬
+ctrl+shift+b
