@@ -4,12 +4,12 @@ using namespace std;
 
 int main()
 {
-  int a, n, x;
-  cin >> n >> x;
-  for (int i = 0; i < n; i++)
-  {
-    cin >> a;
-    if (a < x)
-      cout << a << ' ';
+  
+  set<int> st;
+  for (int i=0; i<100000; i++) {
+    st.insert(i);
+  }
+  for (int i=0; i<100000; i++) {
+    st.erase(i);
   }
 }
