@@ -14,6 +14,19 @@ func2(int arr[], int n)
   return 0;
 }
 
+// o(n)
+func3(int arr[], int n)
+{
+  int arr1[101] = {};
+  for (auto i : arr)
+  {
+    if (arr1[100 - arr[i]])
+      return 1;
+    arr1[arr[i]] = 1;
+  }
+  return 0;
+}
+
 int main()
 {
 }
