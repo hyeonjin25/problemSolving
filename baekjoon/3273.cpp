@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int check[1000001];
+int check[2000001];
 int arr[100001];
 int main()
 {
@@ -17,15 +17,14 @@ int main()
   {
     cin >> t;
     arr[i] = t;
-    check[t]++;
+    check[t] = 1;
   }
 
   cin >> x;
   for (int i = 0; i < n; i++)
   {
-    if (check[x - arr[i]])
+    if (x - arr[i] >= 0 && check[x - arr[i]])
     {
-      cout << arr[i] << ' ';
       res++;
     }
   }
