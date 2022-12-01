@@ -13,22 +13,15 @@ int main()
   cin >> n;
 
   for (int i = 1; i < n + 1; i++)
-  {
     Q.push(i);
-  }
 
-  bool b = 1;
   while (Q.size() != 1)
   {
-    if (b)
-      Q.pop();
-    else
-    {
-      Q.push(Q.front());
-      Q.pop();
-    }
 
-    b = !b;
+    Q.pop();
+
+    Q.push(Q.front());
+    Q.pop();
   }
 
   cout << Q.front();
