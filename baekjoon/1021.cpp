@@ -23,10 +23,12 @@ int main()
   {
     cin >> t;
 
+    int idx = find(D.begin(), D.end(), t) - D.begin(); // t의 idx 찾기
+
     while (D.front() != t)
     {
       // 찾는 원소가 front쪽에 더 가까이 있는 경우
-      if (t - D.front() <= D.back() - t)
+      if ((int)D.size() - idx > idx)
       {
         D.push_back(D.front());
         D.pop_front();
