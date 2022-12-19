@@ -19,25 +19,18 @@ int main()
   {
     cin >> t;
 
-    while (S.size() && S.top().first < t)
+    int num = 1;
+    while (S.size() && S.top().first <= t)
     {
       res += S.top().second;
+      if (S.size() && S.top().first == t)
+        num += S.top().second;
       S.pop();
     }
 
-    if (S.size() && S.top().first == t)
-    {
-      res += S.top().second;
-      if (S.size() > 1)
-        res++;
-      S.top().second++;
-    }
-    else
-    {
-      if (S.size())
-        res++;
-      S.push({t, 1});
-    }
+    if (S.size())
+      res++;
+    S.push({t, num});
   }
 
   cout << res;
