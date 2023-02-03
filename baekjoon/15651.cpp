@@ -3,23 +3,19 @@
 using namespace std;
 
 int n,m;
-int isused[10];
 int arr[10];
 
 void func(int k){
   if(k==m){
     for(int i=0;i<m;i++)
       cout << arr[i] << ' ';
-     cout << '\n';
+    cout << '\n';
     return;
   }
 
   for(int i=1;i<n+1;i++){
-        isused[i]=1;
         arr[k]=i;
         func(k+1);
-        isused[i]=0;
-      
     }
 }
 
