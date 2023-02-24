@@ -34,6 +34,7 @@ int main(){
         if(mat[nx][ny]=='*') count++;
       }
       open[i][j]=count+'0';
+      string s;
     }
   }
 
