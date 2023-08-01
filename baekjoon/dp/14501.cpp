@@ -5,9 +5,9 @@ using namespace std;
 // 점화식 : dp[i] = max(dp[i+1], dp[i+t[i]]+p[i])
 // 초깃값 : 
 
-int dp[20];
-int t[20];
-int p[20];
+int dp[1500005];
+int t[1500005];
+int p[1500005];
 int main(){
   ios::sync_with_stdio(0); cin.tie(0);
 
