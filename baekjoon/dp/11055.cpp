@@ -2,7 +2,7 @@
 using namespace std;
 
 // 정의 : dp[i] -> i번째 까지 수열의 부분수열 중 합이 가장 큰 값
-// 점화식 : dp[i] = min(dp[1]+arr[i], ... , dp[i-1]+arr[i])
+// 점화식 : dp[i] = max(dp[1]+arr[i], ... , dp[i-1]+arr[i])
 // 초깃값 : dp[1] = arr[1]
 
 int dp[1005];
